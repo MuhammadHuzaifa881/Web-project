@@ -62,10 +62,10 @@ const AddAddressMapModal = ({ open, onClose }) => {
   };
 
   const handleAddValue = () => {
-    console.log('Dispatching address:', inputValues);
+    console.log('Dispatching address: add address map modal', inputValues);
 
     dispatch(addressActions.addAddress(inputValues));
-
+console.log(inputValues,"bug starts")
     setInputValues({ addressTitle: "", addressLine: "", latitude: "", longitude: "" });
 
     // const lat = parseFloat(inputValues.latitude);

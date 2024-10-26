@@ -22,18 +22,18 @@ const { reducer, actions } = createSlice({
   // },
   reducers: {
     addAddress(state, action) {
-      console.log(action.payload, "action payload");
-      console.log('Before adding:', state.items);  // Log current items before adding
+      // console.log(action.payload, "action payload");
+      // console.log('Before adding: in address dialog', state.items);  // Log current items before adding
 
       // Check for duplicates
       const isDuplicate = state.items.some(
         (item) => item.addressTitle === action.payload.addressTitle && 
                   item.addressLine === action.payload.addressLine
       );
-
+console.log(isDuplicate,"is duplicate")
       if (!isDuplicate) {
         state.items.push(action.payload);  // Add new address to the array
-        console.log('After adding:', state.items);
+        // console.log('After adding:', Array.from(state.items));
       } else {
         console.log('Duplicate address not added.');
       }

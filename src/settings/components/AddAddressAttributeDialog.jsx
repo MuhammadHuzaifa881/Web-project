@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const AddAddressAttributeDialog = ({ open, handleClose }) => {
   const classes = useStyles();
   const addedValues = useSelector((state) => state?.addresses?.items || []);
-  console.log(addedValues, "my values");
+  // console.log(addedValues, "show data in table");
   const [mapModal, setMapModal] = useState(false);
 
   const handleMapOpen = () => {

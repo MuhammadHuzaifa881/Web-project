@@ -35,20 +35,21 @@ const dispatch=useDispatch();
   const { id } = useParams();
   const addressInfo = useSelector((state) => state?.addresses?.items);
   // const [address, setAddress] = useState({addressInfo?.address});
-  console.log(addressInfo, "info");
+  // console.log(addressInfo, "edit view address info lastly");
 
   useEffectAsync(async () => {
     if (!item) {
       dispatch(addressActions.clearAddresses());
       if (id) {
         const response = await fetch(`/api/${endpoint}/${id}`);
-console.log(response)
         if (response.ok) {
           // setItem(await response.json());
           const data = await response.json(); // Parse the response once
           setItem(data);
-          console.log(data);
-          dispatch(addressActions.addAddress(data.addressInfo));
+          // console.log(data);
+          data.addressInfo.forEach(address => {
+            dispatch(addressActions.addAddress(address));
+          });
         } else {
           throw Error(await response.text());
         }
